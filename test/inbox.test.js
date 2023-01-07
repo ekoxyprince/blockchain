@@ -21,6 +21,15 @@ inbox = await new web3.eth.Contract(abi)
 
 describe('Inbox',()=>{
     it('deploys a contract',()=>{
-        console.log(inbox)
+assert.ok(inbox.options.address)
+    })
+    it('has a default message',async ()=>{
+        const message = await inbox.methods.message().call()
+       assert.equal(message,'Hello There')
+    })
+    it('add new message',async ()=>{
+ await inbox.methods.setMessage('New Message').send({from:accounts[0]})
+ const message = await inbox.methods.message().call()
+ assert.equal(message,'New Message')
     })
 })
