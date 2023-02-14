@@ -3,12 +3,12 @@ const Web3 = require("web3")
 const assert = require('assert')
 const abi = require("./compile").abi
 const bytecode = require("./compile").evm.bytecode.object
-const mnemonicPhrase = 'tank raw grow install work push track badge burst mix silent pear'
+const mnemonicPhrase = // account mnemonics
 const provider = new HDWalletProvider({
  mnemonic:{
     phrase:mnemonicPhrase
  },
- providerOrUrl:'https://goerli.infura.io/v3/09ebb8ee1cd8451ea0251eaeddda3a6e'
+ providerOrUrl://infura endpoint
 })
 const web3 = new Web3(provider)
 const deploy = async ()=>{
